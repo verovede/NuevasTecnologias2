@@ -123,7 +123,7 @@
           </tr>
           <tr>
             <td>Promedio de las notas de todos los alumnos: </td>
-            <td>{{ calcularPromedio() }}</td>
+            <td :style="{ color: colorPorNota(calcularPromedio()) }">{{ calcularPromedio() }}</td>
           </tr>
         </table>
       </div>
@@ -197,6 +197,7 @@ export default {
 
       this.promedio = notaTotal / this.alumnos.length;
 
+      
       return this.promedio.toFixed(2);
     },
   },

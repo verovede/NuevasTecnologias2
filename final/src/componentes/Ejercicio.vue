@@ -106,7 +106,7 @@ export default {
             c: "c) No permiten lógica, sólo llaman a una mutación",
             d: "d) Asincrónica y sincrónica",
           },
-          respuesta: "C",
+          respuesta: "D",
         },
 
         {

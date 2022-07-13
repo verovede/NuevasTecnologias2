@@ -2,16 +2,22 @@
   <section class="src-componentes-ejercicio">
     <h1>Ejercicio Final</h1>
     <div class="m-3">
-      Color: <input type="text" v-model="color" /> 
-      Fondo: <input type="text" v-model="fondo" /> 
-      Size:  <input type="text" v-model="size" />
+      Color: <input type="text" v-model="color" /> Fondo:
+      <input type="text" v-model="fondo" /> Size:
+      <input type="text" v-model="size" />
     </div>
 
-    
+    <div class="m-3">
+      <textarea
+        type="text"
+        v-model.trim="texto"
+        :style="getStyle()"
+        class="text-center"
+      >
+      </textarea>
+    </div>
 
-     <Resultado :estilos="getStyle()" />
-
-    
+    <div class="m-3">Cantidad de palabras: {{ contarPalabras() }}</div>
 
     <div class="jumbotron">
       <h1>Cuestionario Choice</h1>
@@ -43,12 +49,8 @@
 </template>
 
 <script>
-import Resultado from './Resultado.vue'
 export default {
   name: "src-componentes-ejercicio",
-   components: {
-    Resultado,
-  },
   props: [],
   mounted() {},
   data() {
@@ -56,7 +58,7 @@ export default {
       color: "orange",
       fondo: "black",
       size: "200",
-     
+      texto: "Ingrese Texto Aqui",
 
       choices: [
         {
@@ -125,7 +127,10 @@ export default {
     getStyle() {
       return `background: ${this.fondo}; color:  ${this.color}; width:  ${this.size}px `;
     },
- 
+    contarPalabras() {
+      let numero = this.texto.split(" ").length;
+      return numero;
+    },
   },
   computed: {},
 };
